@@ -353,6 +353,8 @@ func ObjectsAndClassConstruct()
 }
 
 //------------------------------------------------------------------------------------
+// Classes
+
 class NamedShape {
     var numberOfSides = 0
     var name: String
@@ -480,7 +482,49 @@ func WillSetConstruct(){
     triangleAndSqure.triangle.sideLength
 }
 
+class Counter {
+    var count:Int = 0
+
+    // Parameters name in methods
+    func incrementBy(amount:Int, numberOfTimes times:Int){
+        count += amount * times
+    }
+}
+
+func ParameterInFuncConstruct()
+{
+    var counter = Counter()
+    counter.incrementBy(10,numberOfTimes:7)
+}
 //------------------------------------------------------------------------------------
+// enum
+
+
+enum Rank:Int {
+    case Ace = 1
+    case One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+    case Jack, Queen, King
+    
+    func simpleDescription()->String {
+        switch self {
+        case .Ace:
+            return "ace"
+        case .Jack:
+            return "jack"
+        case .Queen:
+            return "queen"
+        case .King:
+            return "king"
+        default:
+            return String(self.toRaw())
+        }
+    }
+}
+
+let rank = Rank.fromRaw(5)
+var adsf = rank?.simpleDescription()
+
+//let rankValue = rank.toRaw()
 
 //simpleValues()
 //ArrayConstruct()
@@ -499,6 +543,8 @@ func WillSetConstruct(){
 //SuperClassConstruct()
 //OverrideMethodConstruct()
 //GetterSetterConstruct()
-WillSetConstruct()
+//WillSetConstruct()
+ParameterInFuncConstruct()
+
 
 
