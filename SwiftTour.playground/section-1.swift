@@ -497,11 +497,10 @@ func ParameterInFuncConstruct()
     counter.incrementBy(10,numberOfTimes:7)
 }
 //------------------------------------------------------------------------------------
-// enum
-
+// enum: “Like classes and all other named types, enumerations can have methods associated with them”
 
 enum Rank:Int {
-    case Ace = 1
+    case Ace = 1   // raw values are assigned in order
     case One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
     case Jack, Queen, King
     
@@ -519,12 +518,23 @@ enum Rank:Int {
             return String(self.toRaw())
         }
     }
+    
+    func compareRank(anotherRank: Rank)-> Bool {
+        return self.toRaw() == anotherRank.toRaw()
+    }
 }
 
-let rank = Rank.fromRaw(5)
-var adsf = rank?.simpleDescription()
+func EnumConstruct(){
+/*  EXPERIMENT
+    Write a function that compares two Rank values by comparing their raw values. 
+*/
+    
+    let rank = Rank.fromRaw(12)
+    var jack = rank?.simpleDescription()
+    rank?.compareRank(Rank.Jack)
+}
 
-//let rankValue = rank.toRaw()
+
 
 //simpleValues()
 //ArrayConstruct()
@@ -544,7 +554,8 @@ var adsf = rank?.simpleDescription()
 //OverrideMethodConstruct()
 //GetterSetterConstruct()
 //WillSetConstruct()
-ParameterInFuncConstruct()
+//ParameterInFuncConstruct()
+EnumConstruct()
 
 
 
